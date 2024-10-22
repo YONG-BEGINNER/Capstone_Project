@@ -25,7 +25,7 @@ cat_to_name = {
 # Load model
 restnet_model = models.resnet18().cpu()
 restnet_model.fc = torch.nn.Linear(512, 11)
-restnet_model.load_state_dict(torch.load("restnet_trained.pth", weights_only=True))
+restnet_model.load_state_dict(torch.load("restnet_trained.pth", map_location=torch.device('cpu')))
 restnet_model.eval()
 
 # App layout
